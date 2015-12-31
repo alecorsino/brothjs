@@ -1,0 +1,4 @@
+destination: _gh_pages
+site:
+  src: './src'
+  dist: './dist'

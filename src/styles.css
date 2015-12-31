@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300);
+
+body {
+    color: #666;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', sans-serif;
+}
+.centered{
+    display: block;
+    text-align: center;
+}
+h1 {
+    font-weight: 400;
+    font-size: 60px;
+}
+
+h2{
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #46484d;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+#UItoolTip{
+			
+}
