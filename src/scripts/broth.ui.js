@@ -39,5 +39,5 @@ var UI = {},
         doc.body.appendChild(_tooltipDiv);
     };
 
-  exports.UI = UI;
+  module.exports = UI;
 /*eslint-enable */
