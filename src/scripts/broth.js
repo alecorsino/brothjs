@@ -1,24 +1,24 @@
-var m_soup = require('./soup');
+var Soup = require('./soup');
+var Dom = require('./broth.dom');
 
+//TODO Check Selector returns a valid elemen otherwise don't cook a Soup
   function Broth(selector){
     if ( typeof selector === "string" ) {
-      return new m_soup.Soup(selector);
+      var e = Dom.findElement(selector);
+      return new Soup(e); //MUST RECIEVE AN ELEMENT
     }
 
-    console.log('just Broth, add some ingredients');
+    console.log('...just Broth, add some ingredients');
   };
 
-  Broth.ready = function(fn){
-    window.onload = function(){
-      init();
-      fn(); //User callback on doc ready
-    }
-  };
-
-  function init(document){
-    document = document || window.document;
-    m_soup.init(document);
-    console.log('Broth is ready to cook');
-  };
+// Modular design, we can swap implemntations
+// to support different browsers when needed.
+  Broth.ready = Dom.ready;
+  
+  Broth.create = function(type,id){
+    var elem = Dom.create(type);
+    elem.id = id || ''; //TODO Does ID always make sense?
+    return new Soup(elem);
+  }
 
 module.exports =  Broth;
