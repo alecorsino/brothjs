@@ -8,7 +8,7 @@ Broth.ready(function(){
   t = B('#UItoolTip'); //Our tooltip DIV
 
   h = B('#hoverme'); //Our #hoverme SPAN
-  h.setStyle({borderColor:'green', borderStyle:'solid'});
+  h.setStyle('border-color:green; border-style:solid');
 
 });
 

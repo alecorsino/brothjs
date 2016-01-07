@@ -46,6 +46,7 @@ exports.findElement = function (selector){
 };
 
 //TODO Parse elem string.
+//TODO Might change to DocumentFragment implementation.
 //Should Return Soup ? to leverage all BothJS goodies!
 exports.create = function(elem){
   return doc.createElement(elem);

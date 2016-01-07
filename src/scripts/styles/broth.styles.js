@@ -14,19 +14,20 @@ exports.getStyle = function (value){
         };
 
   // Pass style property string and value string.
-  // Or an object with multiple properties and values
-  // Use camel case for properties i.e backgroundColor instead of background-color
+  // .setStyle('background', '#BADA55'). Use camel case for properties
+  // i.e backgroundColor instead of background-color
+  //
+  // Or a String with multiple properties and values without passing a second param.
+  // .setTyle('background-color:#C0FFEE; display:block')
+  //
   //TODO: pseudo elem
 exports.setStyle =  function(style,value){
-              if (tools.isString(style)){
+              if (value){
                 this.element.style[style] = value;
               }
               else {
-                for(var prop in style){
-          			    this.element.style[prop] = style[prop];
+          			    this.element.style.cssText = style;
           		  }
-              }
-
         };
 
 exports.hide = function(){
@@ -37,3 +38,7 @@ exports.hide = function(){
 exports.show = function(){
               this.element.style.display = '';
         };
+
+// TODO: Decorate text. Pass a txt and return a styled text
+// wrapped with new phrases tags i.e <em>
+// export.styleText =function(){}

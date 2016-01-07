@@ -14,10 +14,10 @@ var Dom = require('./broth.dom');
 // Modular design, we can swap implemntations
 // to support different browsers when needed.
   Broth.ready = Dom.ready;
-  
+
   Broth.create = function(type,id){
     var elem = Dom.create(type);
-    elem.id = id || ''; //TODO Does ID always make sense?
+    elem.id = id || ''; //TODO some elemnt don't have ID
     return new Soup(elem);
   }
 
