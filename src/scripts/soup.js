@@ -14,7 +14,8 @@ var Ui = require('./ui/broth.ui'),
     getStyle: Styles.getStyle,
     setStyle: Styles.setStyle,
     hide: Styles.hide,
-    show: Styles.show
+    show: Styles.show,
+    decorate: Styles.decorate
   };
 
   module.exports = Soup;

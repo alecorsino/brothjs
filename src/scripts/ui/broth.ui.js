@@ -7,7 +7,7 @@ var
 
 /*eslint-disable */
 exports.addTooltip = function(txt){
-  if (!$tooltipDiv){$tooltipDiv = require('./broth.tooltip').createTooltipDiv();
+  if (!$tooltipDiv){$tooltipDiv = require('./broth.tooltip').createTooltipDiv();//TODO FIX THIS SHIT!!!
   Dom.appendToBody($tooltipDiv.element);
 }
 
@@ -16,8 +16,8 @@ exports.addTooltip = function(txt){
       $tooltipDiv.show();
       $tooltipDiv.element.style.top = event.pageY+'px';
       $tooltipDiv.element.style.left = event.pageX+'px';
-        // console.log('X:',event.pageX,txt);
-        // console.log('Y:',event.pageY,txt);
+      // $tooltipDiv.setStyle(['top:',event.pageY,'px;','left:',event.pageX,'px'].join('')); //NEED all the styles to be set
+
     },false);
     this.element.addEventListener('mouseout',function(event){
       $tooltipDiv.hide();
@@ -27,7 +27,7 @@ exports.addTooltip = function(txt){
 };
 
     exports.init = function (){
-        Dom.appendToBody($tooltipDiv.element);
+        // Dom.appendToBody($tooltipDiv.element);
     };
 
 /*eslint-enable */

@@ -1,6 +1,7 @@
-var Dom = {};//This module.
-var doc = document || window.document;
-var domReadyCallBackList = [];
+var Dom = {},//This module.
+    doc = document || window.document,
+    domReadyCallBackList = [],
+    tools = require('./tools/broth.tools');
 
 // Register a listener for DOM Ready without waiting for stylesheets, images
 // and subframes to finish loading.
@@ -9,7 +10,6 @@ Dom.readyEventHandler = function(){
       if (document.readyState == "complete") {
         Dom.domReady();
       }else{
-        console.log('...Registering DOMContentLoaded');
         document.addEventListener('DOMContentLoaded', Dom.DOMContentLoaded);
       };
   Dom.readyEventHandler = function(){}; // We need to execute the logic only once
@@ -20,16 +20,14 @@ Dom.addDomReadyCallback = function (fn){
 };
 
 Dom.DOMContentLoaded =  function (event){
-      console.log('DOM fully loaded');
-      domReadyCallBackList.forEach(function(fn){
-        fn();//User callback on doc ready
+      tools.forEach(domReadyCallBackList,function(i,fn,array){
+          fn();
       });
       Dom.cleanUpDomReady();
 };
 
-//TODO Cleanup callback arrays
 Dom.cleanUpDomReady = function (){
-  // console.log('...Cleaning up dom ready');
+  domReadyCallBackList.length = 0;
   document.removeEventListener('DOMContentLoaded', Dom.domReady);
 };
 

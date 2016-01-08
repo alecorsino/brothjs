@@ -1,6 +1,5 @@
 var B = Broth,
-    h,
-    t;
+    h,d,t;
 
 Broth.ready(function(){
   Broth('#hoverme').addTooltip('Brothed!!');
@@ -14,6 +13,6 @@ Broth.ready(function(){
 
 //We can register multiple callback functions when the DOM is ready
 B.ready(function(){
-  console.log('Second function ready!!!');
   h.setStyle('color','#BADA55');
+  d = B('#decor');
 });

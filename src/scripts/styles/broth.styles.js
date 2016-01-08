@@ -41,4 +41,26 @@ exports.show = function(){
 
 // TODO: Decorate text. Pass a txt and return a styled text
 // wrapped with new phrases tags i.e <em>
-// export.styleText =function(){}
+exports.decorate = function(decoFn){
+  var decorated =[],
+      content = this.element.innerHTML,
+      m,
+      i=0,
+      re = /<("[^"]*?"|'[^']*?'|[^'">])*>/g; //Matches HTML tags
+
+  // ['one','more text here'].join('');
+console.log('String:',content);
+  while ((m = re.exec(content)) !== null) {
+      if (m.index === re.lastIndex) {
+          re.lastIndex++;
+      };
+      decorated.push(content.slice(i,m.index));//Before index string
+      decorated.push(content.slice(m.index,re.lastIndex));//After index string regex matched
+      console.log('Mathed slice:',content.slice(m.index,re.lastIndex));
+      i = re.lastIndex;
+    // console.log('index:',m.index,':',m[0],' length:',m[0].length);
+    // console.log('index:',m.index,':',m[0],' length:',re.lastIndex);
+    // decorated.push({first:})
+  };
+  console.log(decorated);
+};
