@@ -1,4 +1,5 @@
 var Ui = require('./ui/broth.ui'),
+    Dom = require('./dom/broth.dom'),
     Styles = require('./styles/broth.styles'),
     tools = require('./tools/broth.tools');
     //
@@ -11,11 +12,12 @@ var Ui = require('./ui/broth.ui'),
 
   Soup.prototype = {
     addTooltip: Ui.addTooltip,
+    decorate: Styles.decorate,
+    detach: Dom.detach,
     getStyle: Styles.getStyle,
-    setStyle: Styles.setStyle,
     hide: Styles.hide,
+    setStyle: Styles.setStyle,
     show: Styles.show,
-    decorate: Styles.decorate
   };
 
   module.exports = Soup;

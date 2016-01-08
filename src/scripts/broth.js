@@ -1,11 +1,13 @@
 var Soup = require('./soup');
-var Dom = require('./broth.dom');
+var Dom = require('./dom/broth.dom');
 
 //TODO Check Selector returns a valid elemen otherwise don't cook a Soup
   function Broth(selector){
     if ( typeof selector === "string" ) {
       var e = Dom.findElement(selector);
       return new Soup(e); //MUST RECIEVE AN ELEMENT
+    }else if (selector instanceof Soup){
+      console.log('Instance of Soup');
     }
 
     console.log('...just Broth, add some ingredients');
@@ -14,6 +16,7 @@ var Dom = require('./broth.dom');
 // Modular design, we can swap implemntations
 // to support different browsers when needed.
   Broth.ready = Dom.ready;
+  Broth.appendToBody = Dom.appendToBody;
 
   Broth.create = function(type,id){
     var elem = Dom.create(type);

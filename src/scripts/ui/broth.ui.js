@@ -1,7 +1,7 @@
 //TODO Move ui fragments to its own file.
 var
     UI = {},
-    Dom = require('../broth.dom'),
+    Dom = require('../dom/broth.dom'),
     doc = document || window.document,
     $tooltipDiv;
 

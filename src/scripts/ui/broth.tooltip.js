@@ -1,5 +1,5 @@
 /* BrothJS Ui Tooltip */
-var Dom = require('../broth.dom'),
+var Dom = require('../dom/broth.dom'),
     Styles = require('../styles/broth.styles'),
     Soup = require('../soup'),
     toolTipId = 'UItoolTip',
