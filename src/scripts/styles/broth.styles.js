@@ -1,5 +1,6 @@
-var tools = require('../tools/broth.tools');
-
+var S = {}, //This module
+    tools = require('../tools/broth.tools');
+    Dom = require('../dom/broth.dom');
 // exports.getStyles = function (pseudo){
 //               if (tools.isPseudoElem(pseudo)){
 //                 return window.getComputedStyle(this.element,pseudo); // A Pseudo elemet i.e :after
@@ -54,10 +55,17 @@ console.log('String:',content);
       if (m.index === re.lastIndex) {
           re.lastIndex++;
       };
-      decorated.push(content.slice(i,m.index));//Before index string
-      decorated.push(content.slice(m.index,re.lastIndex));//After index string regex matched
-      console.log('Mathed slice:',content.slice(m.index,re.lastIndex));
+      decorated.push(S.enrichText(content.slice(i,m.index)));//Actual txt to decorate
+      decorated.push(m[0]);//Matched string. Ignore
       i = re.lastIndex;
     };
-  console.log(decorated);
+    if(i !== content.lenght){
+      decorated.push(S.enrichText(content.slice(i,content.lenght)))// Last txt to decorate
+    }
+  console.log(decorated.join());
 };
+
+S.enrichText = function(txt){
+
+  return ['<em>',txt,'</em>'].join('');
+}
