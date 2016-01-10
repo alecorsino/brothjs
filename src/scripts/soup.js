@@ -12,7 +12,7 @@ var Ui = require('./ui/broth.ui'),
 
   Soup.prototype = {
     addTooltip: Ui.addTooltip,
-    decorate: Styles.decorate,
+    styleHyperTxt: Styles.styleHyperTxt,
     detach: Dom.detach,
     getStyle: Styles.getStyle,
     hide: Styles.hide,

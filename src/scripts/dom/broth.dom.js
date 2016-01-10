@@ -1,7 +1,7 @@
 var Dom = {},//This module.
     doc = document || window.document,
     domReadyCallBackList = [],
-    tools = require('../tools/broth.tools');
+    tools = require('../tools/broth.tools'),
     cons = require('../broth.const');
 
 Dom.elementCache = {};
