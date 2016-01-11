@@ -1,5 +1,6 @@
 var Soup = require('./soup');
 var Dom = require('./dom/broth.dom');
+var Syles = require('./styles/broth.styles');
 
 //TODO Check Selector returns a valid elemen otherwise don't cook a Soup
 function Broth(selector){
@@ -17,6 +18,7 @@ function Broth(selector){
 // to support different browsers when needed.
   Broth.ready = Dom.ready;
   Broth.appendToBody = Dom.appendToBody;
+  Broth.styleTxt = Syles.styleTxt;
 
 Broth.create = function(type,id){
     var elem = Dom.create(type);
