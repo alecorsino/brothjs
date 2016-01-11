@@ -1,11 +1,14 @@
 var S = {}, //This module
     tools = require('../tools/broth.tools'),
     Dom = require('../dom/broth.dom'),
-    DH = require('./style.hyper');
+    DH = require('./style.hyper'),
+    ET = require('./enrich.text');
 
 
 
 exports.styleHyperTxt = DH.styleHyperTxt;
+exports.styleTxt = ET.enrichText;
+
 
 // TODO: pseudo elem tools.isPseudoElem(pseudo)
 // .getComputedStyle(this.element,pseudo); i.e :after

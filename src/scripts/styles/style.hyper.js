@@ -3,7 +3,8 @@
 // This method extract the text from HTML and wraps it with
 // css classes or inle styles
 
-var DH = {},
+var SH = {},
+    ET = require('./enrich.text'),
     styledTxt,
     regTags = /<("[^"]*?"|'[^']*?'|[^'">])*>/g, //Matches HTML tags
     text,
@@ -23,7 +24,7 @@ exports.styleHyperTxt = function(regex,style){
         if (m.index === regTags.lastIndex) {
             regTags.lastIndex++;
         };
-        styledTxt.push(DH.enrichText(regex,
+        styledTxt.push(ET.enrichText(regex,
                                      text.slice(i,m.index),
                                      style));//Actual text to decorate
         styledTxt.push(m[0]);//Matched HTML tag string being ignored
@@ -31,17 +32,10 @@ exports.styleHyperTxt = function(regex,style){
     };
 
     if(i !== text.lenght){
-      styledTxt.push(DH.enrichText(regex,
+      styledTxt.push(ET.enrichText(regex,
                                    text.slice(i,text.lenght),
                                    style))// Case where there is text after the last Match
     };
 
   this.element.innerHTML = styledTxt.join('');
 };
-
-DH.enrichText = function(re,txt,st){
-  if (txt){
-      //TODO Check whether st is a class or inline style
-      return txt.replace(re,'<em class="'+st+'">$&</em>');
-  }else return
-}

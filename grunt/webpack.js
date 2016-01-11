@@ -6,8 +6,11 @@ module.exports = {
       output: {
           path: '<%= site.dist %>/scripts',
           filename: "broth-bundle.js",
-          library: 'Broth'
+          sourceMapFilename:'[file].map',
+          library: 'Broth',
+
       },
+      devtool: '#source-map',
       stats: {
           // Configure the console output
           colors: true,
