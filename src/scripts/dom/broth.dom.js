@@ -18,12 +18,19 @@ Dom.init = function(){
 // and subframes to finish loading.
 // Register a 'load' event instead.
 Dom.readyEventHandler = function(){
-      if (document.readyState == "complete") {
-        Dom.domReady();
-      }else{
-        document.addEventListener('DOMContentLoaded', Dom.DOMContentLoaded);
-      };
-  Dom.readyEventHandler = function(){}; // We need to execute the logic only once
+    if (document.readyState == "complete") {
+      Dom.domReady();
+    }else{
+      document.addEventListener('DOMContentLoaded', Dom.DOMContentLoaded);
+    };
+    Dom.readyEventHandler = function(){}; // We need to execute the logic only once
+};
+
+//TODO check readystate
+Dom.pageLoadedEventHandler = function(){
+    document.addEventListener("load", function(event) {
+        console.log("All resources finished loading!");
+    });
 };
 
 Dom.addDomReadyCallback = function (fn){

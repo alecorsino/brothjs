@@ -14,16 +14,24 @@ function Broth(selector){
     console.log('...just Broth, add some ingredients');
 };
 
-// Modular design, we can swap implemntations
-// to support different browsers when needed.
+Broth.create = function(type,id){
+  var elem = Dom.create(type);
+  elem.id = id || ''; //TODO some elemnt don't have ID
+  return new Soup(elem);
+};
+
   Broth.ready = Dom.ready;
   Broth.appendToBody = Dom.appendToBody;
   Broth.styleTxt = Syles.styleTxt;
 
-Broth.create = function(type,id){
-    var elem = Dom.create(type);
-    elem.id = id || ''; //TODO some elemnt don't have ID
-    return new Soup(elem);
-}
+/* Init Broth
+   This method will initialise the engine
+   and any module.
+   TODO See Dom.DOMContentLoaded and check init method
+        we should move it here
+*/
+Broth.ready(function(){
+
+});
 
 module.exports =  Broth;
