@@ -12,33 +12,37 @@ exports.styleTxt = ET.enrichText;
 
 // TODO: pseudo elem tools.isPseudoElem(pseudo)
 // .getComputedStyle(this.element,pseudo); i.e :after
-exports.getStyle = function (value){
-            cs = window.getComputedStyle(this.element);
-            return value ? cs[value]:cs;
+exports.getStyle = function (e,value){
+  if (value && e.style[value]){
+    return e.style.value
+  }else{
+    var cs = window.getComputedStyle(e);
+    return value?cs[value]:cs
+  }
 };
 
-// Pass style property string and value string.
-// .setStyle('background', '#BADA55'). Use camel case for properties
+// Pass element, style property string and value string.
+// .setStyle(element,'background', '#BADA55'). Use camel case for properties
 // i.e backgroundColor instead of background-color
 //
-// Or a String with multiple properties and values without passing a second param.
-// .setTyle('background-color:#C0FFEE; display:block')
+// Or a String with multiple properties and values without passing a third param.
+// .setTyle(element,'background-color:#C0FFEE; display:block')
 //
 //TODO: pseudo elem
-exports.setStyle =  function(style,value){
-              if (value){
-                this.element.style[style] = value;
-              }
-              else {
-          			    this.element.style.cssText = style;
-          		  }
+exports.setStyle =  function(e,style,value){
+    if (value){
+      e.style[style] = value;
+    }
+    else {
+			    e.style.cssText = style;
+		  }
 };
 
-exports.hide = function(){
-              this.element.style.display = 'none';
+exports.hide = function(e){
+    e.style.display = 'none';
 };
 
   //TODO Should remember and restore previous display value instead!
-exports.show = function(){
-              this.element.style.display = '';
+exports.show = function(e){
+    e.style.display = '';
 };

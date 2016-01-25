@@ -62,12 +62,21 @@ exports.appendToBody = function(elem){
   doc.body.appendChild(elem);
 };
 
+// Appends passed element node to the body element
+exports.appendTo = function(parent,elem){
+  parent.appendChild(elem);
+};
+
 //TODO Parse elem string.
 //TODO Might change to DocumentFragment implementation.
 //Should Return Soup ? to leverage all BothJS goodies!
 exports.create = function(elem){
   return doc.createElement(elem);
 };
+
+exports.createDocFragment = function(){
+  return doc.createDocumentFragment();
+}
 
 // Detach the actual element node from its parent node
 // and returns it.

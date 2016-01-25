@@ -7,18 +7,18 @@ var
 
 /*eslint-disable */
 exports.addTooltip = function(txt){
-  if (!$tooltipDiv){$tooltipDiv = require('./broth.tooltip').createTooltipDiv();//TODO FIX THIS SHIT!!!
-  Dom.appendToBody($tooltipDiv.element);
-}
-
+    if (!$tooltipDiv){
+        $tooltipDiv = require('./broth.tooltip').createTooltipDiv();//TODO FIX THIS SHIT!!!
+        Dom.appendToBody($tooltipDiv.element);
+    };
+    
     this.element.addEventListener('mouseover',function(event){
       $tooltipDiv.element.textContent = txt;
       $tooltipDiv.show();
       $tooltipDiv.element.style.top = event.pageY+'px';
       $tooltipDiv.element.style.left = event.pageX+'px';
-      // $tooltipDiv.setStyle(['top:',event.pageY,'px;','left:',event.pageX,'px'].join('')); //NEED all the styles to be set
-
     },false);
+
     this.element.addEventListener('mouseout',function(event){
       $tooltipDiv.hide();
 

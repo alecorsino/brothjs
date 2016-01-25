@@ -1,3 +1,10 @@
+var UIID = 0;
+
+exports.newId = function(){
+    UIID++;
+    return ['br','-',UIID].join();
+};
+
 exports.isString = function (s){
     return (typeof s === 'string')
 };

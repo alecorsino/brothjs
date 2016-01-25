@@ -14,10 +14,10 @@ var Ui = require('./ui/broth.ui'),
     addTooltip: Ui.addTooltip,
     styleHyperTxt: Styles.styleHyperTxt,
     detach: Dom.detach,
-    getStyle: Styles.getStyle,
-    hide: Styles.hide,
-    setStyle: Styles.setStyle,
-    show: Styles.show,
+    getStyle: function (value){return Styles.getStyle(this.element,value)},
+    hide: function (){Styles.hide(this.element)},
+    setStyle: function (style,value){Styles.setStyle(this.element,style,value)},
+    show: function (){Styles.show(this.element)}
   };
 
   module.exports = Soup;
