@@ -25,7 +25,7 @@ module.exports = function(grunt) {
   }); //Load-grunt
   // ****************************************
 
-  grunt.registerTask('test', ['nodeunit']);
+  grunt.registerTask('test', ['browserSync:test']);
   grunt.registerTask('a', ['assemble']);
   grunt.registerTask('bcompile', ['babel']);
   grunt.registerTask('bsync', ['browserSync']);
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
   grunt.registerTask('w', ['watch']);
 
   grunt.registerTask('lint', ['eslint']);
-  grunt.registerTask('dev', ['clean','copy','webpack','browserSync','watch']);
+  grunt.registerTask('dev', ['clean','copy','webpack','browserSync:dev','watch']);
 
   grunt.registerTask('build', ['lint', 'babel']);
 

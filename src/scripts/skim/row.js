@@ -9,13 +9,15 @@ var R = {}, //This module
                 'clear: both; }'
               ].join();
 
-    exports.Row = function(){
+    function Row(){
         var _row = R.createRow();
     };
 
     Row.protoype = {
       setParent: Skim.setParent
     };
+
+    module.exports = Row;
 
 /* ********** */
     R.createRow = function(){

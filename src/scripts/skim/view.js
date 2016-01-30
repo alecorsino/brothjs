@@ -1,16 +1,16 @@
 var V = {}, //This module
     Skim = require('./skim.js'),
     Dom = require('../dom/broth.dom'),
-    viewStyle = ['.broth-view {'
+    viewStyle = ['.broth-view {',
                   'position: relative;',
                   'width: 100%;',
                   'max-width: 960px;',
                   'margin: 0 auto;',
                   'padding: 0 20px;',
                   'box-sizing: border-box; }'
-                ].join(),
+                ].join();
 
-    exports.View = function(){
+    function View(){
       var _view = V.createView();
     };
 
@@ -18,6 +18,7 @@ var V = {}, //This module
       setParent: Skim.setParent
     };
 
+module.exports = View;
 /* ******** */
 
     V.createView = function(style){
